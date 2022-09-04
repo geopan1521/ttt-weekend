@@ -24,7 +24,10 @@ div {
 }
 h1 {
   font-family: fangsong;
-  background-color: gray;
+  background-color: black;
+  color: blue
+  
+  
 }
 h2 {
   font-family: 'Times New Roman', Times, serif;

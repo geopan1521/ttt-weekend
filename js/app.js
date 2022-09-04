@@ -93,7 +93,9 @@ if (winner === null) {
 } else {
     console.log(messageEl)
     messageEl.textContent = `Player ${winner === 1 ? 'X' : 'O'} wins`
+    confetti.start(2000)
     }
+    
 }
 
 function handleClick(evt) {
