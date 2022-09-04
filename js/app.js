@@ -1,64 +1,118 @@
 /*-------------------------------- Constants --------------------------------*/
-const squareEls
-//store the nine elements 
-  //    representing the squares on the page.
-const messageEl
-//store the element that displays the 
-  //    game's status on the page.
+// const players = {
+//     '1': {
+//         name: '',
+//         score: 0
+//     },
+//     '-1': {
+//         name: '',
+//         score: 0
+//     }
+// };
 
-const resetBtn = document.getElementById('#reset-button')
+
+
 
 /*---------------------------- Variables (state) ----------------------------*/
 let board, winner, turn
 
-
+winningCombos = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8]
+]
 
 //let getWinner?
 
 
-
-
 /*------------------------ Cached Element References ------------------------*/
+const squareEls = document.querySelectorAll('section > div')
+console.log(squareEls)
 
-let resetBtn = document.querySlector('button') 
+const messageEl = document.getElementById('#message')
+console.log(messageEl)
+
+const reset = document.getElementById('reset-button')
+
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-//event listener
-resetButton.addEventlisterner('click', init)
+
+squareEls.forEach(square=> {
+    square.addEventListener('click', handleClick)
+})
+
+// reset.addEventListener('click', resetGame)
+
+
 
 /*-------------------------------- Functions --------------------------------*/
+// loop for.each for(squareEls, )
+
+init()
 
 function init() {
     board = [null, null, null, null, null, null, null, null, null]
     winner = null
     turn = 1
-    playgame()
-}
-//render()
-function playgame() {
-    //listen for user input via click
-    //use the click to assign value to board for specific value
-
+    render()
 }
 
-function getWinner() {
-
-}
-function handleClick(evt) {
-
-}
 
 function render() {
-
+    board.forEach((square, idx) => {
+    squareEls[idx].innerText = square
+    if(board[idx] === 1) {
+        squareEls[idx].textContent = 'X'
+        } if (board[idx] === -1) {
+        squareEls[idx].textContent = 'O'
+        } if (board[idx] === null) {
+        squareEls[idx].innerText = ''
+    }
+    }) 
+if (winner === null) {
+    messageEl.textContent = `Player ${turn === 1 ? 'X' : 'O'} turn` 
+} else if (winner === 'T') {
+    messageEl.textContent = `Tie`
+} else {
+    messageEl.textContent = `Player ${winner === 1 ? 'X' : 'O'} wins`
+    }
 }
-function renderWin() {
-    messageEl.className = 'winner'
-    div.className = 'winner'
-    squareEl.appendChild(div)
 
+function handleClick(evt) {
+    let sqIDX = parseInt(evt.target.id.replace('sq',' '))
+    if(board[sqIDX] || !winner === null) {
+        return
+    }
+    board[sqIDX] = turn *= -1
+    getWinner()
+    render()
+    console.log(board[sqIDX])
 }
 
+
+function getWinner() {
+    let bestCombo = []
+    winningCombos.forEach(function(combo){
+        let comboValue = board[combo[0]] + board[combo[1]] + board[combo[2]]
+        bestCombo.push(Math.abs(comboValue))
+       
+    }) 
+        let winnersCombo = bestCombo.some(function(value){
+        return value === 3
+        })
+        if (winnersCombo === true) {
+        return turn * -1
+        } else if (!board.some(function(value) {return value === null})){
+        return 'T'
+      // need better explanation 
+        }
+        return null
+
+
+    }
+
+// console.log(board)
 // Step 1 - Define the required variables used to track the state of the game
 
   // 1a) Use a variable named `board` to represent the state of the squares on
