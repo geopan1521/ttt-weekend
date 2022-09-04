@@ -33,4 +33,7 @@ h2 {
   font-family: 'Times New Roman', Times, serif;
   background-color: rgba(255, 183, 0, 0.961);
 }
+button#reset-button {
+  background-color: red;
+}
 
