@@ -19,8 +19,14 @@ let board, winner, turn
 winningCombos = [
     [0, 1, 2],
     [3, 4, 5],
-    [6, 7, 8]
+    [6, 7, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
 ]
+    
 
 //let getWinner?
 
@@ -42,7 +48,7 @@ squareEls.forEach(square=> {
     square.addEventListener('click', handleClick)
 })
 
-// let resetBtn = document.querySlector('button')
+const resetBtn = document.querySelector('button')
 // reset.addEventListener('click', resetGame)
 
 
@@ -98,26 +104,29 @@ function handleClick(evt) {
 
 
 function getWinner() {
-    let bestCombo = []
-    winningCombos.forEach(function(combo){
-        let comboValue = board[combo[0]] + board[combo[1]] + board[combo[2]]
-        bestCombo.push(Math.abs(comboValue))
+  winningCombos.forEach(winningCombo => {
+    let points = 0
+    winningCombo.forEach(idx => {
+      points += board[idx]
+    })
+    if (points === 3) {
+       return winner = 1
+    } else if (points === -3) {
+       return winner = -1
+    } else {
+       if(board.some(square =>
+        square === null
+        )===false){
        
-    }) 
-        let winnersCombo = bestCombo.some(function(value){
-        return value === 3
-        })
-        if (winnersCombo === true) {
-        return turn * -1
-        } else if (!board.some(function(value) {return value === null})){
-        return 'T'
-      
-        }
-        return null
-        
-
-
+        return winner = 'T'
+     
     }
+  }})
+  render()
+} 
+
+
+    
 
 // console.log(board)
 // Step 1 - Define the required variables used to track the state of the game
