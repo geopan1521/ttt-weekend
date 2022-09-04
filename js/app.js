@@ -29,7 +29,7 @@ winningCombos = [
 const squareEls = document.querySelectorAll('section > div')
 console.log(squareEls)
 
-const messageEl = document.getElementById('#message')
+const messageEl = document.getElementById('message')
 console.log(messageEl)
 
 const reset = document.getElementById('reset-button')
@@ -42,6 +42,7 @@ squareEls.forEach(square=> {
     square.addEventListener('click', handleClick)
 })
 
+// let resetBtn = document.querySlector('button')
 // reset.addEventListener('click', resetGame)
 
 
@@ -50,31 +51,36 @@ squareEls.forEach(square=> {
 // loop for.each for(squareEls, )
 
 init()
-
 function init() {
     board = [null, null, null, null, null, null, null, null, null]
     winner = null
     turn = 1
     render()
 }
-
-
 function render() {
     board.forEach((square, idx) => {
     squareEls[idx].innerText = square
     if(board[idx] === 1) {
+        console.log(messageEl)
         squareEls[idx].textContent = 'X'
         } if (board[idx] === -1) {
-        squareEls[idx].textContent = 'O'
+            console.log(messageEl)
+            squareEls[idx].textContent = 'O'
         } if (board[idx] === null) {
         squareEls[idx].innerText = ''
     }
     }) 
+
 if (winner === null) {
+    console.log(messageEl)
     messageEl.textContent = `Player ${turn === 1 ? 'X' : 'O'} turn` 
+    
 } else if (winner === 'T') {
+    console.log(messageEl)
     messageEl.textContent = `Tie`
+    
 } else {
+    console.log(messageEl)
     messageEl.textContent = `Player ${winner === 1 ? 'X' : 'O'} wins`
     }
 }
@@ -105,9 +111,10 @@ function getWinner() {
         return turn * -1
         } else if (!board.some(function(value) {return value === null})){
         return 'T'
-      // need better explanation 
+      
         }
         return null
+        
 
 
     }
@@ -245,4 +252,4 @@ function getWinner() {
   // 8b) Store the new reset button element in a constant named `resetBtnEl`.
 
   // 8c) Attach an event listener to the `resetBtnEl`. On the `'click'` event 
-  //     it should call the `init` function you created in 3.
+  //     it should call the `init` function you created in 3.`
