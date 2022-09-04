@@ -48,8 +48,11 @@ squareEls.forEach(square=> {
     square.addEventListener('click', handleClick)
 })
 
-const resetBtn = document.querySelector('button')
+
 // reset.addEventListener('click', resetGame)
+
+reset.addEventListener("click", init)
+
 
 
 
@@ -58,10 +61,12 @@ const resetBtn = document.querySelector('button')
 
 init()
 function init() {
+    console.log('init')
     board = [null, null, null, null, null, null, null, null, null]
     winner = null
     turn = 1
     render()
+    
 }
 function render() {
     board.forEach((square, idx) => {
@@ -79,7 +84,7 @@ function render() {
 
 if (winner === null) {
     console.log(messageEl)
-    messageEl.textContent = `Player ${turn === 1 ? 'X' : 'O'} turn` 
+    messageEl.textContent = `Player ${turn === 1 ? 'O' : 'X'} turn` 
     
 } else if (winner === 'T') {
     console.log(messageEl)
