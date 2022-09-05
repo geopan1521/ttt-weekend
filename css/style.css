@@ -13,7 +13,17 @@ section.board {
   display: grid;
   grid-template-rows: repeat(3, 10vmin);
   grid-template-columns: repeat(3, 10vmin);
-  grid-gap: 0vmin;
+  grid-gap: 1vmin;
+  text-align: center;
+  
+  
+  
+  
+}
+
+body {
+  text-align: center;
+  align-items: center;
 }
 
 div {
@@ -21,6 +31,7 @@ div {
   font-size: 8vmin;
   text-align: center;
   vertical-align: middle;
+  
 }
 h1 {
   font-family: fangsong;
@@ -37,5 +48,8 @@ h2 {
 }
 button#reset-button {
   background-color: red;
+  text-align: center;
+  margin-top: 5px;
+  
 }
 
