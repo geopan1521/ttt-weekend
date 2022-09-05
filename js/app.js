@@ -65,7 +65,7 @@ winningCombos = [
 ]
     
 
-//let getWinner?
+
 
 
 /*------------------------ Cached Element References ------------------------*/
@@ -86,15 +86,13 @@ squareEls.forEach(square=> {
 })
 
 
-// reset.addEventListener('click', resetGame)
-
 reset.addEventListener("click", init)
 
 
 
 
 /*-------------------------------- Functions --------------------------------*/
-// loop for.each for(squareEls, )
+
 
 init()
 function init() {
@@ -119,7 +117,7 @@ function render() {
     }
     }) 
 
-if (winner === null) {
+if (!winner) {
     console.log(messageEl)
     messageEl.textContent = `Player ${turn === 1 ? 'O' : 'X'} turn` 
     
