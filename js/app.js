@@ -73,9 +73,6 @@ squareEls.forEach(square=> {
 
 reset.addEventListener("click", init)
 
-
-
-
 /*-------------------------------- Functions --------------------------------*/
 
 init()
