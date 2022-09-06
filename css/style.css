@@ -11,46 +11,40 @@ body {
 
 section.board {
   display: grid;
-  background-image: url(https://i.imgur.com/Hjrrbl6.jpg);
   grid-template-rows: repeat(3, 10vmin);
   grid-template-columns: repeat(3, 10vmin);
   grid-gap: 1vmin;
-  text-align: center;
-  
-  
-  
-  
+  text-align: center; 
+  background-image: center;
 }
 
 body {
   text-align: center;
-  align-items: center;
+  align-items: center; 
 }
 
 div {
   border: 3px solid black;
   font-size: 8vmin;
   text-align: center;
-  vertical-align: middle;
-  
+  vertical-align: middle; 
 }
+
 h1 {
   font-family: fangsong;
   background-color: black;
-  color: blue
-  
-  
-  
+  color: rgba(89, 168, 242, 0.783) 
 }
+
 h2 {
   font-family: 'Times New Roman', Times, serif;
   background-color: rgba(255, 183, 0, 0.961);
   
 }
+
 button#reset-button {
   background-color: red;
   text-align: center;
-  margin-top: 5px;
-  
+  margin-top: 5px; 
 }
 
